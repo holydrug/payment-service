@@ -1,0 +1,19 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+rabbitmq:
+  host: ${RABBIT_HOST}
+  username: ${RABBIT_USERNAME}
+  password: ${RABBIT_PASSWORD}
+  exchanges:
+    internal: internal.exchange
+  queues:
+    internal: internal.queue
+  routing-keys:
+    internal: internal.routing-key
+
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
