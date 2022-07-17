@@ -1,5 +1,6 @@
 package com.popov.payment.service.service;
 
+import com.popov.payment.service.configuration.redis.etc.RedisMessagePublisher;
 import com.popov.payment.service.entity.Payment;
 import com.popov.payment.service.rabbit.PaymentSender;
 import com.popov.payment.service.repository.PaymentRepository;
@@ -18,13 +19,17 @@ public class PaymentService {
 
     private final PaymentRepository paymentRepository;
     private final RedisTemplate redisTemplate;
+    private final RedisMessagePublisher redisMessagePublisher;
     private final PaymentSender paymentSender;
 
 
     public void createPayment(Payment payment) {
-        redisTemplate.opsForHash().put(HASH_KEY, payment.getNumber(), payment);
+/*        redisTemplate.opsForHash().put(HASH_KEY, payment.getNumber(), payment);
         paymentSender.sendPayment(redisTemplate.opsForHash().get(HASH_KEY, payment.getNumber()).toString());
-        log.info(redisTemplate.opsForHash().get(HASH_KEY, payment.getNumber()));
+        log.info(redisTemplate.opsForHash().get(HASH_KEY, payment.getNumber()));*/
+
+        redisMessagePublisher.publish(payment.toString());
+
     }
 
     public ResponseEntity<?> getAllPayments() {
