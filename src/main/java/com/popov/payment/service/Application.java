@@ -1,4 +1,4 @@
-package com.payment.service;
+package com.popov.payment.service;
 
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.boot.SpringApplication;
