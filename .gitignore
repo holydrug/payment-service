@@ -34,3 +34,4 @@ build/
 /docker/mysql/data/
 /docker/rabbitmq/data/
 /docker/redis/data/
+/docker/mysql/data/
