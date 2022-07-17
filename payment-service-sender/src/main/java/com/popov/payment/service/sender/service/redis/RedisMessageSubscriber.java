@@ -1,4 +1,4 @@
-package com.popov.payment.service.sender.service;
+package com.popov.payment.service.sender.service.redis;
 
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;

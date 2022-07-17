@@ -1,21 +1,19 @@
-package com.popov.payment.service.entity;
+package com.popov.payment.service.sender.entity;
 
-import com.popov.payment.service.entity.etc.Cycle;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-@Entity
+@RequiredArgsConstructor
 public class Payment implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private Long number;
     private Integer amount;
     private String memo;
@@ -25,7 +23,7 @@ public class Payment implements Serializable {
     private boolean recurring;
 
     private Cycle cycle;
-    @Temporal(TemporalType.DATE)
+
     private Date recurringStartDate;
 
     private Integer recurringInstallments;

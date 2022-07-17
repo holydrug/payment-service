@@ -1,6 +1,6 @@
 package com.popov.payment.service.sender.properties;
 
-import com.popov.payment.service.sender.properties.redis.Redis;
+import com.popov.payment.service.sender.properties.rabbitmq.RabbitMq;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -15,5 +15,5 @@ import org.springframework.context.annotation.Configuration;
 @EnableConfigurationProperties
 @ConfigurationProperties
 public class YAMLProperties {
-    private Redis redis;
+    private RabbitMq rabbitMq;
 }

@@ -8,10 +8,13 @@ rabbitmq:
   username: ${RABBIT_USERNAME}
   password: ${RABBIT_PASSWORD}
   exchanges:
+    feedback: feedback.exchange
     internal: internal.exchange
   queues:
+    feedback: feedback.queue
     internal: internal.queue
   routing-keys:
+    feedback: feedback.routing-key
     internal: internal.routing-key
 
 redis:
