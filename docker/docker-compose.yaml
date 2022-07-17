@@ -1,0 +1,34 @@
+version: '3.7'
+services:
+  mysql:
+    container_name: mysql-8-payment-service
+    image: mysql:8
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+      MYSQL_USER: serega
+      MYSQL_DATABASE: payment
+  redis:
+    container_name: redis-7.0.3-payment-service
+    image: redis:7.0.3
+    volumes:
+      - ./redis/data:/var/lib/redis/data
+    ports:
+      - '6379:6379'
+  rabbitmq:
+    container_name: rabbitmq-payment-service
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    volumes:
+      - ./rabbitmq/etc/definitions.json:/etc/rabbitmq/definitions.json
+      - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./rabbitmq/data:/var/lib/rabbitmq/
